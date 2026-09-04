@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './index.css';
 import {
-  House, ChartBar, CurrencyDollar, Moon, Sun,
+  House, ChartBar, CurrencyDollar, Moon, Sun, CloudArrowUp,
 } from '@phosphor-icons/react';
+import { api }         from './api.js';
 import IposPage      from './pages/IposPage.jsx';
 import IpoDetailPage from './pages/IpoDetailPage.jsx';
 import CapitalPage   from './pages/CapitalPage.jsx';
@@ -29,10 +30,134 @@ function useTheme() {
   return { theme, toggle };
 }
 
+/* ── Backend warm-up ──────────────────────────────────────── */
+function useWarmup() {
+  // 'pending' | 'warming' | 'ready' | 'timeout'
+  const [status, setStatus] = useState('pending');
+  const [elapsed, setElapsed] = useState(0);
+  const intervalRef = useRef(null);
+  const timerRef   = useRef(null);
+
+  useEffect(() => {
+    let attempts = 0;
+    const MAX_WAIT = 40; // seconds before we give up
+
+    async function ping() {
+      try {
+        const res = await api.health();
+        if (res?.status === 'ok') {
+          clearInterval(intervalRef.current);
+          clearInterval(timerRef.current);
+          setStatus('ready');
+          return;
+        }
+      } catch { /* cold start — backend not yet awake */ }
+      attempts++;
+      if (attempts === 1) setStatus('warming'); // show overlay after first failure
+    }
+
+    // First ping immediately
+    ping();
+    // Retry every 3s
+    intervalRef.current = setInterval(ping, 3000);
+    // Elapsed counter every second
+    timerRef.current = setInterval(() => {
+      setElapsed(s => {
+        if (s + 1 >= MAX_WAIT) {
+          clearInterval(intervalRef.current);
+          clearInterval(timerRef.current);
+          setStatus('timeout');
+        }
+        return s + 1;
+      });
+    }, 1000);
+
+    return () => {
+      clearInterval(intervalRef.current);
+      clearInterval(timerRef.current);
+    };
+  }, []);
+
+  return { status, elapsed };
+}
+
+function WarmupOverlay({ status, elapsed }) {
+  if (status === 'pending' || status === 'ready') return null;
+
+  const isTimeout = status === 'timeout';
+
+  return (
+    <div style={{
+      position: 'fixed', inset: 0, zIndex: 9999,
+      background: 'var(--bg-0)',
+      display: 'flex', flexDirection: 'column',
+      alignItems: 'center', justifyContent: 'center',
+      gap: 20,
+      animation: 'fadeIn 0.3s ease',
+    }}>
+      {!isTimeout && (
+        <div style={{
+          width: 48, height: 48,
+          border: '2px solid var(--border-1)',
+          borderTopColor: 'var(--accent)',
+          borderRadius: '50%',
+          animation: 'spin 0.9s linear infinite',
+        }} />
+      )}
+      {isTimeout && (
+        <CloudArrowUp size={40} weight="thin" style={{ color: 'var(--text-2)' }} />
+      )}
+
+      <div style={{ textAlign: 'center' }}>
+        <div style={{
+          fontFamily: 'var(--font-sans)',
+          fontWeight: 600,
+          fontSize: 16,
+          color: 'var(--text-0)',
+          marginBottom: 6,
+        }}>
+          {isTimeout ? 'Backend unreachable' : 'Waking up backend…'}
+        </div>
+        <div style={{
+          fontFamily: 'var(--font-mono)',
+          fontSize: 12,
+          color: 'var(--text-2)',
+          maxWidth: 320,
+          lineHeight: 1.7,
+        }}>
+          {isTimeout
+            ? 'The server did not respond after 40s. Try refreshing or check back shortly.'
+            : `Render free tier spins down after inactivity. Cold start takes ~20–30s. (${elapsed}s)`
+          }
+        </div>
+        {isTimeout && (
+          <button
+            onClick={() => window.location.reload()}
+            style={{
+              marginTop: 16,
+              background: 'var(--accent)',
+              color: '#fff',
+              border: 'none',
+              padding: '8px 20px',
+              borderRadius: 'var(--r)',
+              cursor: 'pointer',
+              fontFamily: 'var(--font-mono)',
+              fontSize: 12,
+            }}
+          >
+            Retry
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function App() {
   const [page, setPage]             = useState('ipos');
   const [selectedIpo, setSelected]  = useState(null);
   const { theme, toggle }           = useTheme();
+  const { status, elapsed }         = useWarmup();
 
   function navigate(p) { setPage(p); setSelected(null); }
 
@@ -57,6 +182,7 @@ export default function App() {
 
   return (
     <div style={{ display: 'flex', minHeight: '100dvh' }}>
+      <WarmupOverlay status={status} elapsed={elapsed} />
       <aside className="sidebar">
         <div className="sidebar-brand">
           <div className="sidebar-brand-name">IPO Terminal</div>

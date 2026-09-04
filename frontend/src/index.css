@@ -7,6 +7,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700&display=swap');
 
+@keyframes spin    { to { transform: rotate(360deg); } }
+@keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes shimmer { from { background-position: -600px 0; } to { background-position: 600px 0; } }
+
 /* ── Tokens ─────────────────────────────────────────────── */
 :root {
   --bg-0: #151c2c;       /* page base — mid slate-navy, not pitch black */
