@@ -7,7 +7,7 @@ services:
   - type: web
     name: ipo-terminal-api
     runtime: python
-    region: singapore       # closest to India
+    region: singapore
     plan: free
     rootDir: .
     buildCommand: pip install -r requirements.txt && pip install -e .
@@ -15,7 +15,7 @@ services:
     healthCheckPath: /health
     envVars:
       - key: PYTHON_VERSION
-        value: "3.12"
+        value: "3.12.0"
       - key: PYTHONPATH
         value: src
 
