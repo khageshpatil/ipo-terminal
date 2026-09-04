@@ -1,0 +1,82 @@
+{
+  "strategy": "RuleV1 (total>=10.0x)",
+  "n_total": 318,
+  "n_apply": 85,
+  "n_skip": 138,
+  "n_watch": 95,
+  "apply_rate_pct": 26.7,
+  "applied": {
+    "n": 85,
+    "positive": 85,
+    "hit_rate_pct": 100.0,
+    "mean_pct": 63.37,
+    "median_pct": 51.84,
+    "max_gain_pct": 249.69,
+    "max_loss_pct": 2.5,
+    "std_pct": 44.73
+  },
+  "skipped": {
+    "n": 128,
+    "positive": 73,
+    "hit_rate_pct": 57.0,
+    "mean_pct": 1.79,
+    "median_pct": 1.77,
+    "max_gain_pct": 43.79,
+    "max_loss_pct": -24.44,
+    "std_pct": 11.77
+  },
+  "all_ipos_baseline": {
+    "n": 303,
+    "positive": 232,
+    "hit_rate_pct": 76.6,
+    "mean_pct": 25.1,
+    "median_pct": 12.26,
+    "max_gain_pct": 249.69,
+    "max_loss_pct": -24.44,
+    "std_pct": 37.76
+  },
+  "yearly": {
+    "2018": {
+      "n": 4,
+      "positive": 4,
+      "hit_rate_pct": 100.0,
+      "mean_pct": 41.38
+    },
+    "2019": {
+      "n": 2,
+      "positive": 2,
+      "hit_rate_pct": 100.0,
+      "mean_pct": 77.2
+    },
+    "2020": {
+      "n": 7,
+      "positive": 7,
+      "hit_rate_pct": 100.0,
+      "mean_pct": 85.36
+    },
+    "2021": {
+      "n": 20,
+      "positive": 20,
+      "hit_rate_pct": 100.0,
+      "mean_pct": 78.29
+    },
+    "2022": {
+      "n": 2,
+      "positive": 2,
+      "hit_rate_pct": 100.0,
+      "mean_pct": 44.45
+    },
+    "2023": {
+      "n": 16,
+      "positive": 16,
+      "hit_rate_pct": 100.0,
+      "mean_pct": 59.62
+    },
+    "2024": {
+      "n": 34,
+      "positive": 34,
+      "hit_rate_pct": 100.0,
+      "mean_pct": 54.71
+    }
+  }
+}

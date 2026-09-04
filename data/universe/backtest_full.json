@@ -1,0 +1,302 @@
+{
+  "Apply-Every-IPO": {
+    "strategy_name": "Apply-Every-IPO",
+    "n_total": 318,
+    "n_apply": 318,
+    "n_skip": 0,
+    "n_watch": 0,
+    "apply_rate_pct": 100.0,
+    "coverage_pct": 100.0,
+    "applied": {
+      "n": 318,
+      "positive": 232,
+      "negative": 86,
+      "hit_rate_pct": 73.0,
+      "mean_pct": 23.92,
+      "median_pct": 10.0,
+      "max_gain_pct": 249.69,
+      "max_loss_pct": -24.44,
+      "std_pct": 37.24,
+      "cumulative_pct": 4.7687787523556954e+26
+    },
+    "skipped": {
+      "n": 0
+    },
+    "watched": {
+      "n": 0
+    },
+    "all_baseline": {
+      "n": 318,
+      "positive": 232,
+      "negative": 86,
+      "hit_rate_pct": 73.0,
+      "mean_pct": 23.92,
+      "median_pct": 10.0,
+      "max_gain_pct": 249.69,
+      "max_loss_pct": -24.44,
+      "std_pct": 37.24,
+      "cumulative_pct": 4.7687787523556954e+26
+    },
+    "yearly": {
+      "2018": {
+        "n": 24,
+        "positive": 12,
+        "hit_rate_pct": 50.0,
+        "mean_pct": 5.18,
+        "median_pct": 1.35
+      },
+      "2019": {
+        "n": 20,
+        "positive": 14,
+        "hit_rate_pct": 70.0,
+        "mean_pct": 16.08,
+        "median_pct": 9.21
+      },
+      "2020": {
+        "n": 16,
+        "positive": 12,
+        "hit_rate_pct": 75.0,
+        "mean_pct": 38.59,
+        "median_pct": 18.71
+      },
+      "2021": {
+        "n": 66,
+        "positive": 48,
+        "hit_rate_pct": 72.7,
+        "mean_pct": 30.31,
+        "median_pct": 14.69
+      },
+      "2022": {
+        "n": 39,
+        "positive": 26,
+        "hit_rate_pct": 66.7,
+        "mean_pct": 9.97,
+        "median_pct": 3.53
+      },
+      "2023": {
+        "n": 60,
+        "positive": 48,
+        "hit_rate_pct": 80.0,
+        "mean_pct": 25.98,
+        "median_pct": 16.48
+      },
+      "2024": {
+        "n": 93,
+        "positive": 72,
+        "hit_rate_pct": 77.4,
+        "mean_pct": 27.89,
+        "median_pct": 15.59
+      }
+    },
+    "per_ipo_count": 318
+  },
+  "Sub-Only (>=10x)": {
+    "strategy_name": "Sub-Only (>=10x)",
+    "n_total": 318,
+    "n_apply": 180,
+    "n_skip": 138,
+    "n_watch": 0,
+    "apply_rate_pct": 56.6,
+    "coverage_pct": 56.6,
+    "applied": {
+      "n": 180,
+      "positive": 159,
+      "negative": 21,
+      "hit_rate_pct": 88.3,
+      "mean_pct": 40.98,
+      "median_pct": 33.07,
+      "max_gain_pct": 249.69,
+      "max_loss_pct": -14.29,
+      "std_pct": 41.02,
+      "cumulative_pct": 1.1138036135943252e+26
+    },
+    "skipped": {
+      "n": 138,
+      "positive": 73,
+      "negative": 65,
+      "hit_rate_pct": 52.9,
+      "mean_pct": 1.66,
+      "median_pct": 1.12,
+      "max_gain_pct": 43.79,
+      "max_loss_pct": -24.44,
+      "std_pct": 11.34,
+      "cumulative_pct": 328.15
+    },
+    "watched": {
+      "n": 0
+    },
+    "all_baseline": {
+      "n": 318,
+      "positive": 232,
+      "negative": 86,
+      "hit_rate_pct": 73.0,
+      "mean_pct": 23.92,
+      "median_pct": 10.0,
+      "max_gain_pct": 249.69,
+      "max_loss_pct": -24.44,
+      "std_pct": 37.24,
+      "cumulative_pct": 4.7687787523556954e+26
+    },
+    "yearly": {
+      "2018": {
+        "n": 6,
+        "positive": 6,
+        "hit_rate_pct": 100.0,
+        "mean_pct": 33.6,
+        "median_pct": 34.93
+      },
+      "2019": {
+        "n": 9,
+        "positive": 9,
+        "hit_rate_pct": 100.0,
+        "mean_pct": 37.16,
+        "median_pct": 24.3
+      },
+      "2020": {
+        "n": 9,
+        "positive": 8,
+        "hit_rate_pct": 88.9,
+        "mean_pct": 67.61,
+        "median_pct": 73.61
+      },
+      "2021": {
+        "n": 38,
+        "positive": 34,
+        "hit_rate_pct": 89.5,
+        "mean_pct": 52.1,
+        "median_pct": 44.94
+      },
+      "2022": {
+        "n": 12,
+        "positive": 10,
+        "hit_rate_pct": 83.3,
+        "mean_pct": 23.86,
+        "median_pct": 20.73
+      },
+      "2023": {
+        "n": 41,
+        "positive": 36,
+        "hit_rate_pct": 87.8,
+        "mean_pct": 35.75,
+        "median_pct": 27.93
+      },
+      "2024": {
+        "n": 65,
+        "positive": 56,
+        "hit_rate_pct": 86.2,
+        "mean_pct": 38.47,
+        "median_pct": 32.46
+      }
+    },
+    "per_ipo_count": 318
+  },
+  "Rule-V1": {
+    "strategy_name": "Rule-V1",
+    "n_total": 318,
+    "n_apply": 85,
+    "n_skip": 138,
+    "n_watch": 95,
+    "apply_rate_pct": 26.7,
+    "coverage_pct": 56.6,
+    "applied": {
+      "n": 85,
+      "positive": 85,
+      "negative": 0,
+      "hit_rate_pct": 100.0,
+      "mean_pct": 63.37,
+      "median_pct": 51.84,
+      "max_gain_pct": 249.69,
+      "max_loss_pct": 2.5,
+      "std_pct": 44.73,
+      "cumulative_pct": 8.178283543814178e+18
+    },
+    "skipped": {
+      "n": 138,
+      "positive": 73,
+      "negative": 65,
+      "hit_rate_pct": 52.9,
+      "mean_pct": 1.66,
+      "median_pct": 1.12,
+      "max_gain_pct": 43.79,
+      "max_loss_pct": -24.44,
+      "std_pct": 11.34,
+      "cumulative_pct": 328.15
+    },
+    "watched": {
+      "n": 95,
+      "positive": 74,
+      "negative": 21,
+      "hit_rate_pct": 77.9,
+      "mean_pct": 20.96,
+      "median_pct": 16.77,
+      "max_gain_pct": 114.29,
+      "max_loss_pct": -14.29,
+      "std_pct": 23.64,
+      "cumulative_pct": 1361903785.61
+    },
+    "all_baseline": {
+      "n": 318,
+      "positive": 232,
+      "negative": 86,
+      "hit_rate_pct": 73.0,
+      "mean_pct": 23.92,
+      "median_pct": 10.0,
+      "max_gain_pct": 249.69,
+      "max_loss_pct": -24.44,
+      "std_pct": 37.24,
+      "cumulative_pct": 4.7687787523556954e+26
+    },
+    "yearly": {
+      "2018": {
+        "n": 4,
+        "positive": 4,
+        "hit_rate_pct": 100.0,
+        "mean_pct": 41.38,
+        "median_pct": 46.86
+      },
+      "2019": {
+        "n": 2,
+        "positive": 2,
+        "hit_rate_pct": 100.0,
+        "mean_pct": 77.2,
+        "median_pct": 77.2
+      },
+      "2020": {
+        "n": 7,
+        "positive": 7,
+        "hit_rate_pct": 100.0,
+        "mean_pct": 85.36,
+        "median_pct": 87.5
+      },
+      "2021": {
+        "n": 20,
+        "positive": 20,
+        "hit_rate_pct": 100.0,
+        "mean_pct": 78.29,
+        "median_pct": 71.39
+      },
+      "2022": {
+        "n": 2,
+        "positive": 2,
+        "hit_rate_pct": 100.0,
+        "mean_pct": 44.45,
+        "median_pct": 44.45
+      },
+      "2023": {
+        "n": 16,
+        "positive": 16,
+        "hit_rate_pct": 100.0,
+        "mean_pct": 59.62,
+        "median_pct": 51.93
+      },
+      "2024": {
+        "n": 34,
+        "positive": 34,
+        "hit_rate_pct": 100.0,
+        "mean_pct": 54.71,
+        "median_pct": 37.79
+      }
+    },
+    "per_ipo_count": 318
+  }
+}

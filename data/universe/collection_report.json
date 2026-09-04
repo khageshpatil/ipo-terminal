@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-09-04T06:37:10.064042+00:00",
+  "total_ipos_discovered": 318,
+  "usable_ipos": 0,
+  "missing_listing_price": 0,
+  "primary_verified_listing_price": 244,
+  "secondary_verified_listing_price": 74,
+  "with_subscription_data": 318,
+  "missing_issue_price": 0,
+  "missing_close_date": 318,
+  "missing_listing_date": 0,
+  "positive_listing_count": 0,
+  "positive_listing_rate_pct": null,
+  "mean_listing_return_pct": null
+}

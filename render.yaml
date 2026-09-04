@@ -1,0 +1,37 @@
+# render.yaml — Render Blueprint
+# Defines both services from a single repo
+# Docs: https://render.com/docs/blueprint-spec
+
+services:
+  # ── Backend: FastAPI ─────────────────────────────────────
+  - type: web
+    name: ipo-terminal-api
+    runtime: python
+    region: singapore       # closest to India
+    plan: free
+    rootDir: .
+    buildCommand: pip install -r requirements.txt && pip install -e .
+    startCommand: uvicorn ipo_analyzer.api.app:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12"
+      - key: PYTHONPATH
+        value: src
+
+  # ── Frontend: React/Vite static site ─────────────────────
+  - type: web
+    name: ipo-terminal-ui
+    runtime: static
+    region: singapore
+    plan: free
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://ipo-terminal-api.onrender.com   # update after first deploy
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
