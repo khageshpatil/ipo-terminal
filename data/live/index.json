@@ -1,0 +1,662 @@
+{
+  "PRIORITY_JEWELS_LTD-2026": {
+    "company_name": "Priority Jewels Ltd.",
+    "nse_symbol": null,
+    "status": "LISTED_TODAY",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-09-04",
+    "issue_price": 200.0,
+    "last_updated": "2026-09-04T19:35:05.705859+00:00"
+  },
+  "ESDS_SOFTWARE_SOLUTI-2026": {
+    "company_name": "ESDS Software Solution Ltd.",
+    "nse_symbol": null,
+    "status": "LISTED_TODAY",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-09-04",
+    "issue_price": 429.0,
+    "last_updated": "2026-09-04T19:35:06.756650+00:00"
+  },
+  "LUMINO_INDUSTRIES_LT-2026": {
+    "company_name": "Lumino Industries Ltd.",
+    "nse_symbol": null,
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-09-03",
+    "issue_price": 82.0,
+    "last_updated": "2026-09-04T19:35:06.773063+00:00"
+  },
+  "ANNU-2026": {
+    "company_name": "Annu Projects Ltd.",
+    "nse_symbol": "ANNU",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-09-02",
+    "issue_price": 99.0,
+    "last_updated": "2026-09-04T19:35:06.788242+00:00"
+  },
+  "SKYWAYS-2026": {
+    "company_name": "Skyways Air Services Ltd.",
+    "nse_symbol": "SKYWAYS",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-09-01",
+    "issue_price": 138.0,
+    "last_updated": "2026-09-04T19:35:06.801594+00:00"
+  },
+  "HTEL-2026": {
+    "company_name": "Hy-Tech Engineers Ltd.",
+    "nse_symbol": "HTEL",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-09-01",
+    "issue_price": 53.0,
+    "last_updated": "2026-09-04T19:35:06.822363+00:00"
+  },
+  "SYMBIOTEC-2026": {
+    "company_name": "Symbiotec Pharmalab Ltd.",
+    "nse_symbol": "SYMBIOTEC",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-09-01",
+    "issue_price": 988.0,
+    "last_updated": "2026-09-04T19:35:06.836273+00:00"
+  },
+  "AUGMONT-2026": {
+    "company_name": "Augmont Enterprises Ltd.",
+    "nse_symbol": "AUGMONT",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-08-31",
+    "issue_price": 788.0,
+    "last_updated": "2026-09-04T19:35:06.844679+00:00"
+  },
+  "TEMPSENS-2026": {
+    "company_name": "Tempsens Instruments (India) Ltd.",
+    "nse_symbol": "TEMPSENS",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-08-28",
+    "issue_price": 300.0,
+    "last_updated": "2026-09-04T19:35:06.870924+00:00"
+  },
+  "GAJA-2026": {
+    "company_name": "Gaja Alternative Asset Management Ltd.",
+    "nse_symbol": "GAJA",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-08-26",
+    "issue_price": 160.0,
+    "last_updated": "2026-09-04T19:35:06.884597+00:00"
+  },
+  "SUNSHINE-2026": {
+    "company_name": "Sunshine Pictures Ltd.",
+    "nse_symbol": "SUNSHINE",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-08-25",
+    "issue_price": 360.0,
+    "last_updated": "2026-09-04T19:35:06.905638+00:00"
+  },
+  "SHANKESH-2026": {
+    "company_name": "Shankesh Jewellers Ltd.",
+    "nse_symbol": "SHANKESH",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-08-25",
+    "issue_price": 93.0,
+    "last_updated": "2026-09-04T19:35:06.920888+00:00"
+  },
+  "LALITHAA-2026": {
+    "company_name": "Lalithaa Jewellery Mart Ltd.",
+    "nse_symbol": "LALITHAA",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-08-24",
+    "issue_price": 201.0,
+    "last_updated": "2026-09-04T19:35:06.940327+00:00"
+  },
+  "HORIZONIND-2026": {
+    "company_name": "Horizon Industrial Parks Ltd.",
+    "nse_symbol": "HORIZONIND",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-08-24",
+    "issue_price": 60.0,
+    "last_updated": "2026-09-04T19:35:06.955635+00:00"
+  },
+  "SHIPROCKET-2026": {
+    "company_name": "Shiprocket Ltd.",
+    "nse_symbol": "SHIPROCKET",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-08-19",
+    "issue_price": 97.0,
+    "last_updated": "2026-09-04T19:35:06.975005+00:00"
+  },
+  "BLEL-2026": {
+    "company_name": "Behari Lal Engineering Ltd.",
+    "nse_symbol": "BLEL",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-08-19",
+    "issue_price": 285.0,
+    "last_updated": "2026-09-04T19:35:06.993446+00:00"
+  },
+  "MILKYMIST-2026": {
+    "company_name": "Milky Mist Dairy Food Ltd.",
+    "nse_symbol": "MILKYMIST",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-08-18",
+    "issue_price": 140.0,
+    "last_updated": "2026-09-04T19:35:07.010565+00:00"
+  },
+  "DHOOTTRANS-2026": {
+    "company_name": "Dhoot Transmission Ltd.",
+    "nse_symbol": "DHOOTTRANS",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-08-17",
+    "issue_price": 871.0,
+    "last_updated": "2026-09-04T19:35:07.027362+00:00"
+  },
+  "MOLBIO-2026": {
+    "company_name": "Molbio Diagnostics Ltd.",
+    "nse_symbol": "MOLBIO",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-08-17",
+    "issue_price": 807.0,
+    "last_updated": "2026-09-04T19:35:07.043253+00:00"
+  },
+  "TECHNOCRAF-2026": {
+    "company_name": "Technocraft Ventures Ltd.",
+    "nse_symbol": "TECHNOCRAF",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-08-14",
+    "issue_price": 212.0,
+    "last_updated": "2026-09-04T19:35:07.060077+00:00"
+  },
+  "LEAPIND-2026": {
+    "company_name": "LEAP India Ltd.",
+    "nse_symbol": "LEAPIND",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-08-14",
+    "issue_price": 159.0,
+    "last_updated": "2026-09-04T19:35:07.079021+00:00"
+  },
+  "ARDEE-2026": {
+    "company_name": "Ardee Industries Ltd.",
+    "nse_symbol": "ARDEE",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-08-12",
+    "issue_price": 53.0,
+    "last_updated": "2026-09-04T19:35:07.096652+00:00"
+  },
+  "JNPR-2026": {
+    "company_name": "Juniper Green Energy Ltd.",
+    "nse_symbol": "JNPR",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-08-06",
+    "issue_price": 225.0,
+    "last_updated": "2026-09-04T19:35:07.113773+00:00"
+  },
+  "MVELECTRO-2026": {
+    "company_name": "MV Electrosystems Ltd.",
+    "nse_symbol": "MVELECTRO",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-08-06",
+    "issue_price": 425.0,
+    "last_updated": "2026-09-04T19:35:07.134545+00:00"
+  },
+  "MANIPALHOS-2026": {
+    "company_name": "Manipal Health Enterprises Ltd.",
+    "nse_symbol": "MANIPALHOS",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-08-05",
+    "issue_price": 590.0,
+    "last_updated": "2026-09-04T19:35:07.151398+00:00"
+  },
+  "CUBE_HIGHWAYS_TRUST-2026": {
+    "company_name": "Cube Highways Trust",
+    "nse_symbol": null,
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-07-31",
+    "issue_price": 152.0,
+    "last_updated": "2026-09-04T19:35:07.166703+00:00"
+  },
+  "LCL-2026": {
+    "company_name": "Lohia Corp Ltd.",
+    "nse_symbol": "LCL",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-07-30",
+    "issue_price": 425.0,
+    "last_updated": "2026-09-04T19:35:07.184901+00:00"
+  },
+  "INDOMIM-2026": {
+    "company_name": "Indo-MIM Ltd.",
+    "nse_symbol": "INDOMIM",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-07-30",
+    "issue_price": 485.0,
+    "last_updated": "2026-09-04T19:35:07.198890+00:00"
+  },
+  "XTRANET-2026": {
+    "company_name": "Xtranet Technologies Ltd.",
+    "nse_symbol": "XTRANET",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-07-30",
+    "issue_price": 127.0,
+    "last_updated": "2026-09-04T19:35:07.217835+00:00"
+  },
+  "CMLL-2026": {
+    "company_name": "Caliber Mining & Logistics Ltd.",
+    "nse_symbol": "CMLL",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-07-24",
+    "issue_price": 424.0,
+    "last_updated": "2026-09-04T19:35:07.235471+00:00"
+  },
+  "ALPINETEX-2026": {
+    "company_name": "Alpine Texworld Ltd.",
+    "nse_symbol": "ALPINETEX",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-07-21",
+    "issue_price": 105.0,
+    "last_updated": "2026-09-04T19:35:07.252479+00:00"
+  },
+  "SBIFUNDS-2026": {
+    "company_name": "SBI Funds Management Ltd.",
+    "nse_symbol": "SBIFUNDS",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-07-21",
+    "issue_price": 574.0,
+    "last_updated": "2026-09-04T19:35:07.272757+00:00"
+  },
+  "LASERPOWER-2026": {
+    "company_name": "Laser Power & Infra Ltd.",
+    "nse_symbol": "LASERPOWER",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-07-16",
+    "issue_price": 214.0,
+    "last_updated": "2026-09-04T19:35:07.289914+00:00"
+  },
+  "KUSUMGAR-2026": {
+    "company_name": "Kusumgar Ltd.",
+    "nse_symbol": "KUSUMGAR",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-07-15",
+    "issue_price": 419.0,
+    "last_updated": "2026-09-04T19:35:07.308590+00:00"
+  },
+  "KNACK-2026": {
+    "company_name": "Knack Packaging Ltd.",
+    "nse_symbol": "KNACK",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-07-08",
+    "issue_price": 170.0,
+    "last_updated": "2026-09-04T19:35:07.325856+00:00"
+  },
+  "AASTHA-2026": {
+    "company_name": "Aastha Spintex Ltd.",
+    "nse_symbol": "AASTHA",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-07-06",
+    "issue_price": 136.0,
+    "last_updated": "2026-09-04T19:35:07.342780+00:00"
+  },
+  "CSM-2026": {
+    "company_name": "CSM Technologies Ltd.",
+    "nse_symbol": "CSM",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-07-02",
+    "issue_price": 113.0,
+    "last_updated": "2026-09-04T19:35:07.349591+00:00"
+  },
+  "CORDELIA-2026": {
+    "company_name": "Waterways Leisure Tourism Ltd.",
+    "nse_symbol": "CORDELIA",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-07-01",
+    "issue_price": 808.0,
+    "last_updated": "2026-09-04T19:35:07.377337+00:00"
+  },
+  "RAMBHAJO-2026": {
+    "company_name": "Advit Jewels Ltd.",
+    "nse_symbol": "RAMBHAJO",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-07-01",
+    "issue_price": 138.0,
+    "last_updated": "2026-09-04T19:35:07.421689+00:00"
+  },
+  "TURTLEMINT-2026": {
+    "company_name": "Turtlemint Fintech Solutions Ltd.",
+    "nse_symbol": "TURTLEMINT",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-06-29",
+    "issue_price": 152.0,
+    "last_updated": "2026-09-04T19:35:07.439786+00:00"
+  },
+  "HEXAGON-2026": {
+    "company_name": "Hexagon Nutrition Ltd.",
+    "nse_symbol": "HEXAGON",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-06-12",
+    "issue_price": 45.0,
+    "last_updated": "2026-09-04T19:35:07.458149+00:00"
+  },
+  "CMRGREEN-2026": {
+    "company_name": "CMR Green Technologies Ltd.",
+    "nse_symbol": "CMRGREEN",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-06-10",
+    "issue_price": 192.0,
+    "last_updated": "2026-09-04T19:35:07.474467+00:00"
+  },
+  "BAGMANE_PRIME_OFFICE-2026": {
+    "company_name": "Bagmane Prime Office REIT",
+    "nse_symbol": null,
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-05-14",
+    "issue_price": 100.0,
+    "last_updated": "2026-09-04T19:35:07.492723+00:00"
+  },
+  "KISSHT-2026": {
+    "company_name": "OnEMI Technology Solutions Ltd.",
+    "nse_symbol": "KISSHT",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-05-08",
+    "issue_price": 171.0,
+    "last_updated": "2026-09-04T19:35:07.509152+00:00"
+  },
+  "CITIUS_TRANSNET_INVE-2026": {
+    "company_name": "Citius Transnet Investment Trust",
+    "nse_symbol": null,
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-04-29",
+    "issue_price": 100.0,
+    "last_updated": "2026-09-04T19:35:07.526158+00:00"
+  },
+  "PROPERTY_SHARE_INVES-2026": {
+    "company_name": "Property Share Investment Trust-Propshare Celestia",
+    "nse_symbol": null,
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-04-24",
+    "issue_price": 1050000.0,
+    "last_updated": "2026-09-04T19:35:07.542926+00:00"
+  },
+  "OMPOWER-2026": {
+    "company_name": "Om Power Transmission Ltd.",
+    "nse_symbol": "OMPOWER",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-04-17",
+    "issue_price": 175.0,
+    "last_updated": "2026-09-04T19:35:07.557746+00:00"
+  },
+  "AMIRCHAND-2026": {
+    "company_name": "Amir Chand Jagdish Kumar (Exports) Ltd.",
+    "nse_symbol": "AMIRCHAND",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-04-02",
+    "issue_price": 212.0,
+    "last_updated": "2026-09-04T19:35:07.578576+00:00"
+  },
+  "POWERICA-2026": {
+    "company_name": "Powerica Ltd.",
+    "nse_symbol": "POWERICA",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-04-02",
+    "issue_price": 395.0,
+    "last_updated": "2026-09-04T19:35:07.597601+00:00"
+  },
+  "SAIPARENT-2026": {
+    "company_name": "Sai Parenteral's Ltd.",
+    "nse_symbol": "SAIPARENT",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-04-02",
+    "issue_price": 392.0,
+    "last_updated": "2026-09-04T19:35:07.617793+00:00"
+  },
+  "CMPDI-2026": {
+    "company_name": "Central Mine Planning & Design Institute Ltd.",
+    "nse_symbol": "CMPDI",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-03-30",
+    "issue_price": 172.0,
+    "last_updated": "2026-09-04T19:35:07.637282+00:00"
+  },
+  "GSPCROP-2026": {
+    "company_name": "GSP Crop Science Ltd.",
+    "nse_symbol": "GSPCROP",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-03-24",
+    "issue_price": 320.0,
+    "last_updated": "2026-09-04T19:35:07.659016+00:00"
+  },
+  "RAAJMARG_INFRA_INVES-2026": {
+    "company_name": "Raajmarg Infra Investment Trust",
+    "nse_symbol": null,
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-03-24",
+    "issue_price": 100.0,
+    "last_updated": "2026-09-04T19:35:07.679458+00:00"
+  },
+  "INNOVISION-2026": {
+    "company_name": "Innovision Ltd.",
+    "nse_symbol": "INNOVISION",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-03-23",
+    "issue_price": 519.0,
+    "last_updated": "2026-09-04T19:35:07.698196+00:00"
+  },
+  "RSL-2026": {
+    "company_name": "Rajputana Stainless Ltd.",
+    "nse_symbol": "RSL",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-03-19",
+    "issue_price": 122.0,
+    "last_updated": "2026-09-04T19:35:07.717429+00:00"
+  },
+  "SEDEMAC-2026": {
+    "company_name": "SEDEMAC Mechatronics Ltd.",
+    "nse_symbol": "SEDEMAC",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-03-11",
+    "issue_price": 1352.0,
+    "last_updated": "2026-09-04T19:35:07.735351+00:00"
+  },
+  "OMNI-2026": {
+    "company_name": "Omnitech Engineering Ltd.",
+    "nse_symbol": "OMNI",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-03-05",
+    "issue_price": 227.0,
+    "last_updated": "2026-09-04T19:35:07.775751+00:00"
+  },
+  "PNGSREVA-2026": {
+    "company_name": "PNGS Reva Diamond Jewellery Ltd.",
+    "nse_symbol": "PNGSREVA",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-03-04",
+    "issue_price": 386.0,
+    "last_updated": "2026-09-04T19:35:07.807010+00:00"
+  },
+  "SRTL-2026": {
+    "company_name": "Shree Ram Twistex Ltd.",
+    "nse_symbol": "SRTL",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-03-02",
+    "issue_price": 104.0,
+    "last_updated": "2026-09-04T19:35:07.840120+00:00"
+  },
+  "CLEANMAX-2026": {
+    "company_name": "Clean Max Enviro Energy Solutions Ltd.",
+    "nse_symbol": "CLEANMAX",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-03-02",
+    "issue_price": 1053.0,
+    "last_updated": "2026-09-04T19:35:07.865141+00:00"
+  },
+  "GAUDIUMIVF-2026": {
+    "company_name": "Gaudium IVF & Women Health Ltd.",
+    "nse_symbol": "GAUDIUMIVF",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-02-27",
+    "issue_price": 79.0,
+    "last_updated": "2026-09-04T19:35:07.887262+00:00"
+  },
+  "AYE-2026": {
+    "company_name": "Aye Finance Ltd.",
+    "nse_symbol": "AYE",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-02-16",
+    "issue_price": 129.0,
+    "last_updated": "2026-09-04T19:35:07.907347+00:00"
+  },
+  "FRACTAL-2026": {
+    "company_name": "Fractal Analytics Ltd.",
+    "nse_symbol": "FRACTAL",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-02-16",
+    "issue_price": 900.0,
+    "last_updated": "2026-09-04T19:35:07.928448+00:00"
+  },
+  "SHADOWFAX-2026": {
+    "company_name": "Shadowfax Technologies Ltd.",
+    "nse_symbol": "SHADOWFAX",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-01-28",
+    "issue_price": 124.0,
+    "last_updated": "2026-09-04T19:35:07.949276+00:00"
+  },
+  "AMAGI-2026": {
+    "company_name": "Amagi Media Labs Ltd.",
+    "nse_symbol": "AMAGI",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-01-21",
+    "issue_price": 361.0,
+    "last_updated": "2026-09-04T19:35:07.969125+00:00"
+  },
+  "BHARATCOAL-2026": {
+    "company_name": "Bharat Coking Coal Ltd.",
+    "nse_symbol": "BHARATCOAL",
+    "status": "LISTED",
+    "open_date": null,
+    "close_date": null,
+    "listing_date": "2026-01-19",
+    "issue_price": 23.0,
+    "last_updated": "2026-09-04T19:35:07.993428+00:00"
+  }
+}

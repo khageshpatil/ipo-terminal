@@ -10,6 +10,7 @@ export default defineConfig({
       '/capital': 'http://localhost:8001',
       '/backtests': 'http://localhost:8001',
       '/health': 'http://localhost:8001',
+      '/live': 'http://localhost:8001',
     },
   },
 })

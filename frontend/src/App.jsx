@@ -1,15 +1,17 @@
 import { useState, useEffect, useRef } from 'react';
 import './index.css';
 import {
-  House, ChartBar, CurrencyDollar, Moon, Sun, CloudArrowUp,
+  House, ChartBar, CurrencyDollar, Moon, Sun, CloudArrowUp, Lightning,
 } from '@phosphor-icons/react';
 import { api }         from './api.js';
 import IposPage      from './pages/IposPage.jsx';
 import IpoDetailPage from './pages/IpoDetailPage.jsx';
 import CapitalPage   from './pages/CapitalPage.jsx';
 import BacktestPage  from './pages/BacktestPage.jsx';
+import LivePage      from './pages/LivePage.jsx';
 
 const NAV = [
+  { id: 'live',     label: 'Live IPOs',      Icon: Lightning      },
   { id: 'ipos',     label: 'IPO Universe',   Icon: House          },
   { id: 'capital',  label: 'Capital Planner', Icon: CurrencyDollar },
   { id: 'backtest', label: 'Backtest',        Icon: ChartBar       },
@@ -171,10 +173,11 @@ export default function App() {
       );
     }
     switch (page) {
+      case 'live':     return <LivePage />;
       case 'ipos':     return <IposPage onSelectIpo={id => { setSelected(id); setPage('ipo-detail'); }} />;
       case 'capital':  return <CapitalPage />;
       case 'backtest': return <BacktestPage />;
-      default:         return <IposPage onSelectIpo={id => { setSelected(id); setPage('ipo-detail'); }} />;
+      default:         return <LivePage />;
     }
   }
 
@@ -211,7 +214,7 @@ export default function App() {
             <span className="pos">●</span> 244 NSE verified
           </div>
           <div style={{ marginTop: 10, lineHeight: 1.7 }}>
-            Historical data only.<br />Not investment advice.
+            Live + historical data.<br />Not investment advice.
           </div>
 
           {/* Theme toggle */}

@@ -44,4 +44,21 @@ export const api = {
   },
 
   baseline: () => apiFetch('/backtests/baseline'),
+
+  // ── Live IPO endpoints ──────────────────────────────────────────────────
+  liveIpos: (status) => {
+    const q = new URLSearchParams();
+    if (status) q.set('status', status);
+    return apiFetch(`/live/ipos?${q}`);
+  },
+
+  liveIpoAnalysis: (ipoId) => apiFetch(`/live/ipos/${ipoId}/analysis`),
+
+  liveSnapshots: (ipoId, field) => {
+    const q = new URLSearchParams();
+    if (field) q.set('field', field);
+    return apiFetch(`/live/ipos/${ipoId}/snapshots?${q}`);
+  },
+
+  triggerRefresh: () => apiFetch('/live/refresh', { method: 'POST' }),
 };

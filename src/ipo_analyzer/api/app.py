@@ -18,10 +18,11 @@ from __future__ import annotations
 
 import json
 import logging
+import threading
 from pathlib import Path
 from typing import Optional
 
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import BackgroundTasks, FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
@@ -51,6 +52,8 @@ _universe: Optional[list] = None
 _strategy = None
 _backtest_full: Optional[dict] = None
 _backtest_per_ipo: Optional[list] = None
+_live_refresh_lock = threading.Lock()
+_live_last_refreshed: Optional[str] = None
 
 BACKTEST_FULL_PATH = Path("data/universe/backtest_full.json")
 BACKTEST_PER_IPO_PATH = Path("data/universe/backtest_rule_v1_per_ipo.json")
@@ -254,7 +257,28 @@ class PerIpoRecord(BaseModel):
 
 
 # ---------------------------------------------------------------------------
-# Routes
+# Startup — trigger initial live data refresh in background
+# ---------------------------------------------------------------------------
+
+@app.on_event("startup")
+async def _startup_refresh() -> None:
+    """Kick off an initial live data fetch without blocking server startup."""
+    def _bg():
+        try:
+            from ipo_analyzer.live.runner import refresh_live_ipos
+            global _live_last_refreshed
+            with _live_refresh_lock:
+                refresh_live_ipos()
+                from datetime import datetime, timezone
+                _live_last_refreshed = datetime.now(timezone.utc).isoformat()
+        except Exception as e:
+            logger.warning("Startup live refresh failed (non-fatal): %s", e)
+    t = threading.Thread(target=_bg, daemon=True)
+    t.start()
+
+
+# ---------------------------------------------------------------------------
+# Routes — Health
 # ---------------------------------------------------------------------------
 
 @app.get("/health")
@@ -498,4 +522,170 @@ def baseline():
     return {
         **result,
         "dataset_note": "Historical in-sample. PRIMARY_VERIFIED=244, SECONDARY_VERIFIED=74.",
+    }
+
+
+# ---------------------------------------------------------------------------
+# Routes — Live IPO Data  (Phase E)
+# ---------------------------------------------------------------------------
+
+@app.get("/live/ipos")
+def live_ipos(status: Optional[str] = Query(None, description="Filter: OPEN/UPCOMING/CLOSED")):
+    """
+    Return all currently tracked live IPOs with their latest observations.
+    Data is sourced from Chittorgarh live subscription page.
+    All recommendations are RULE_ESTIMATE.
+    """
+    from ipo_analyzer.live.store import load_all_live_ipos
+    from ipo_analyzer.live.runner import run_live_decision
+
+    ipos = load_all_live_ipos()
+    if status:
+        ipos = [i for i in ipos if i.status == status.upper()]
+
+    result = []
+    for ipo in ipos:
+        decision = run_live_decision(ipo)
+        result.append({
+            "ipo_id": ipo.ipo_id,
+            "company_name": ipo.company_name,
+            "nse_symbol": ipo.nse_symbol,
+            "status": ipo.status,
+            "segment": ipo.segment,
+            "open_date": ipo.open_date,
+            "close_date": ipo.close_date,
+            "listing_date": ipo.listing_date,
+            "issue_price": ipo.issue_price,
+            "price_band_low": ipo.price_band_low,
+            "price_band_high": ipo.price_band_high,
+            "lot_size": ipo.lot_size,
+            "issue_size_cr": ipo.issue_size_cr,
+            "subscription_qib_x": ipo.subscription_qib_x,
+            "subscription_nii_x": ipo.subscription_nii_x,
+            "subscription_retail_x": ipo.subscription_retail_x,
+            "subscription_total_x": ipo.subscription_total_x,
+            "subscription_is_final": ipo.subscription_is_final,
+            "gmp_inr": ipo.gmp_inr,
+            "gmp_pct": ipo.gmp_pct,
+            "recommendation": decision.recommendation,
+            "confidence": decision.confidence,
+            "p_positive": decision.p_positive,
+            "expected_return_pct": decision.expected_return_pct,
+            "data_quality": decision.data_quality,
+            "observed_at": ipo.observed_at,
+            "retrieved_at": ipo.retrieved_at,
+            "source": ipo.source,
+        })
+
+    return {
+        "count": len(result),
+        "last_refreshed": _live_last_refreshed,
+        "note": "All recommendations are RULE_ESTIMATE. Data from Chittorgarh.",
+        "ipos": result,
+    }
+
+
+@app.get("/live/ipos/{ipo_id}/analysis")
+def live_ipo_analysis(ipo_id: str):
+    """
+    Full rule-strategy analysis for a single live IPO.
+    Includes signal breakdown and reason lines.
+    """
+    from ipo_analyzer.live.store import load_live_ipo
+    from ipo_analyzer.live.runner import run_live_decision
+
+    ipo = load_live_ipo(ipo_id)
+    if not ipo:
+        raise HTTPException(404, f"Live IPO {ipo_id!r} not found. Try POST /live/refresh first.")
+
+    decision = run_live_decision(ipo)
+
+    return {
+        "ipo_id": ipo.ipo_id,
+        "company_name": ipo.company_name,
+        "nse_symbol": ipo.nse_symbol,
+        "status": ipo.status,
+        "open_date": ipo.open_date,
+        "close_date": ipo.close_date,
+        "listing_date": ipo.listing_date,
+        "issue_price": ipo.issue_price,
+        "lot_size": ipo.lot_size,
+        "issue_size_cr": ipo.issue_size_cr,
+        "subscription_qib_x": ipo.subscription_qib_x,
+        "subscription_nii_x": ipo.subscription_nii_x,
+        "subscription_retail_x": ipo.subscription_retail_x,
+        "subscription_total_x": ipo.subscription_total_x,
+        "gmp_inr": ipo.gmp_inr,
+        "gmp_pct": ipo.gmp_pct,
+        "recommendation": decision.recommendation,
+        "confidence": decision.confidence,
+        "p_positive": decision.p_positive,
+        "expected_return_pct": decision.expected_return_pct,
+        "reason_lines": decision.reason_lines,
+        "data_quality": decision.data_quality,
+        "missing_fields": decision.missing_fields,
+        "decision_at": decision.decision_at,
+        "source": ipo.source,
+        "observed_at": ipo.observed_at,
+    }
+
+
+@app.get("/live/ipos/{ipo_id}/snapshots")
+def live_ipo_snapshots(
+    ipo_id: str,
+    field: Optional[str] = Query(None, description="Filter by field name"),
+    limit: int = Query(100, le=500),
+):
+    """
+    Return the raw time-series observation log for a live IPO.
+    This is the prospective dataset being built for future model training.
+    """
+    from ipo_analyzer.live.store import load_observations
+
+    obs = load_observations(ipo_id)
+    if not obs:
+        raise HTTPException(404, f"No observations found for {ipo_id!r}")
+
+    if field:
+        obs = [o for o in obs if o.field_name == field]
+
+    obs = obs[-limit:]  # most recent N
+
+    return {
+        "ipo_id": ipo_id,
+        "total_observations": len(obs),
+        "fields_tracked": list({o.field_name for o in obs}),
+        "observations": [
+            {
+                "field_name": o.field_name,
+                "value": o.value,
+                "observed_at": o.observed_at,
+                "retrieved_at": o.retrieved_at,
+                "source": o.source,
+                "is_final": o.is_final,
+            }
+            for o in obs
+        ],
+    }
+
+
+@app.post("/live/refresh")
+def live_refresh(background_tasks: BackgroundTasks):
+    """
+    Trigger a live data refresh from Chittorgarh.
+    Refresh runs in background — returns immediately.
+    Check GET /live/ipos for updated data.
+    """
+    def _do_refresh():
+        global _live_last_refreshed
+        with _live_refresh_lock:
+            from ipo_analyzer.live.runner import refresh_live_ipos
+            refresh_live_ipos()
+            from datetime import datetime, timezone
+            _live_last_refreshed = datetime.now(timezone.utc).isoformat()
+
+    background_tasks.add_task(_do_refresh)
+    return {
+        "status": "refresh_queued",
+        "message": "Live data refresh started in background. Check /live/ipos shortly.",
     }
