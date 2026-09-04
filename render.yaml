@@ -30,7 +30,7 @@ services:
     staticPublishPath: dist
     envVars:
       - key: VITE_API_URL
-        value: https://ipo-terminal-api.onrender.com   # update after first deploy
+        value: https://ipo-terminal.onrender.com
     routes:
       - type: rewrite
         source: /*
