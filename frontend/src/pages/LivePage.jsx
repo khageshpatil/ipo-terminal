@@ -336,11 +336,13 @@ export default function LivePage() {
 
   const ipos = data?.ipos || [];
   const byStatus = {
-    OPEN: ipos.filter(i => i.status === 'OPEN'),
+    OPEN:     ipos.filter(i => i.status === 'OPEN'),
     UPCOMING: ipos.filter(i => i.status === 'UPCOMING'),
-    CLOSED: ipos.filter(i => i.status === 'CLOSED'),
-    OTHER: ipos.filter(i => !['OPEN', 'UPCOMING', 'CLOSED'].includes(i.status)),
+    CLOSED:   ipos.filter(i => i.status === 'CLOSED'),
   };
+  // For the default view, show CLOSED limited to first 12 to avoid wall of cards
+  const [showAllClosed, setShowAllClosed] = useState(false);
+  const closedToShow = showAllClosed ? byStatus.CLOSED : byStatus.CLOSED.slice(0, 12);
 
   return (
     <div style={{ padding: '28px 24px', maxWidth: 1100, margin: '0 auto' }}>
@@ -428,7 +430,7 @@ export default function LivePage() {
         </div>
       ) : (
         <>
-          {/* OPEN section — most important */}
+          {/* OPEN section */}
           {byStatus.OPEN.length > 0 && !statusFilter && (
             <div style={{ marginBottom: 28 }}>
               <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: 'var(--green)', marginBottom: 12, letterSpacing: '0.08em' }}>
@@ -452,22 +454,54 @@ export default function LivePage() {
             </div>
           )}
 
-          {/* Filtered view */}
-          {statusFilter && (
-            <div className="ipo-grid">
-              {ipos.map(ipo => <LiveCard key={ipo.ipo_id} ipo={ipo} onClick={setSelected} />)}
+          {/* No active IPOs notice */}
+          {byStatus.OPEN.length === 0 && byStatus.UPCOMING.length === 0 && !statusFilter && (
+            <div style={{
+              padding: '10px 14px', borderRadius: 'var(--r-sm)',
+              background: 'var(--bg-2)', border: '1px solid var(--border-0)',
+              fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--text-3)',
+              marginBottom: 20,
+            }}>
+              No IPOs currently OPEN or UPCOMING — showing 2026 listings below
             </div>
           )}
 
-          {/* CLOSED (collapsed) */}
+          {/* Filtered view */}
+          {statusFilter && (
+            <div className="ipo-grid">
+              {ipos.length > 0
+                ? ipos.map(ipo => <LiveCard key={ipo.ipo_id} ipo={ipo} onClick={setSelected} />)
+                : <div style={{ color: 'var(--text-3)', fontFamily: 'var(--font-mono)', fontSize: 13, padding: 20 }}>
+                    No IPOs with status {statusFilter}
+                  </div>
+              }
+            </div>
+          )}
+
+          {/* CLOSED — shown by default, paginated */}
           {!statusFilter && byStatus.CLOSED.length > 0 && (
             <div style={{ marginBottom: 28 }}>
               <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: 'var(--text-3)', marginBottom: 12, letterSpacing: '0.08em' }}>
-                ✓ RECENTLY CLOSED ({byStatus.CLOSED.length})
+                ✓ 2026 IPO LISTINGS ({byStatus.CLOSED.length})
               </div>
               <div className="ipo-grid">
-                {byStatus.CLOSED.map(ipo => <LiveCard key={ipo.ipo_id} ipo={ipo} onClick={setSelected} />)}
+                {closedToShow.map(ipo => <LiveCard key={ipo.ipo_id} ipo={ipo} onClick={setSelected} />)}
               </div>
+              {byStatus.CLOSED.length > 12 && (
+                <div style={{ textAlign: 'center', marginTop: 16 }}>
+                  <button
+                    onClick={() => setShowAllClosed(v => !v)}
+                    style={{
+                      background: 'var(--bg-2)', border: '1px solid var(--border-1)',
+                      color: 'var(--text-2)', borderRadius: 'var(--r-sm)',
+                      padding: '6px 18px', cursor: 'pointer',
+                      fontFamily: 'var(--font-mono)', fontSize: 11,
+                    }}
+                  >
+                    {showAllClosed ? '↑ Show less' : `↓ Show all ${byStatus.CLOSED.length} IPOs`}
+                  </button>
+                </div>
+              )}
             </div>
           )}
         </>

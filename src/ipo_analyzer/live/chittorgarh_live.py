@@ -42,9 +42,8 @@ def _determine_status(listing_date_str: Optional[str]) -> str:
         if approx_close >= today:
             return "OPEN"
         return "UPCOMING"
-    elif listing == today:
-        return "LISTED_TODAY"
-    return "LISTED"
+    # Already listed (including today) → CLOSED for UI purposes
+    return "CLOSED"
 
 
 def _raw_to_live_ipo(raw, now: str) -> Optional[LiveIPO]:

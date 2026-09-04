@@ -2,7 +2,7 @@
   "PRIORITY_JEWELS_LTD-2026": {
     "company_name": "Priority Jewels Ltd.",
     "nse_symbol": null,
-    "status": "LISTED_TODAY",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-09-04",
@@ -12,7 +12,7 @@
   "ESDS_SOFTWARE_SOLUTI-2026": {
     "company_name": "ESDS Software Solution Ltd.",
     "nse_symbol": null,
-    "status": "LISTED_TODAY",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-09-04",
@@ -22,7 +22,7 @@
   "LUMINO_INDUSTRIES_LT-2026": {
     "company_name": "Lumino Industries Ltd.",
     "nse_symbol": null,
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-09-03",
@@ -32,7 +32,7 @@
   "ANNU-2026": {
     "company_name": "Annu Projects Ltd.",
     "nse_symbol": "ANNU",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-09-02",
@@ -42,7 +42,7 @@
   "SKYWAYS-2026": {
     "company_name": "Skyways Air Services Ltd.",
     "nse_symbol": "SKYWAYS",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-09-01",
@@ -52,7 +52,7 @@
   "HTEL-2026": {
     "company_name": "Hy-Tech Engineers Ltd.",
     "nse_symbol": "HTEL",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-09-01",
@@ -62,7 +62,7 @@
   "SYMBIOTEC-2026": {
     "company_name": "Symbiotec Pharmalab Ltd.",
     "nse_symbol": "SYMBIOTEC",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-09-01",
@@ -72,7 +72,7 @@
   "AUGMONT-2026": {
     "company_name": "Augmont Enterprises Ltd.",
     "nse_symbol": "AUGMONT",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-08-31",
@@ -82,7 +82,7 @@
   "TEMPSENS-2026": {
     "company_name": "Tempsens Instruments (India) Ltd.",
     "nse_symbol": "TEMPSENS",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-08-28",
@@ -92,7 +92,7 @@
   "GAJA-2026": {
     "company_name": "Gaja Alternative Asset Management Ltd.",
     "nse_symbol": "GAJA",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-08-26",
@@ -102,7 +102,7 @@
   "SUNSHINE-2026": {
     "company_name": "Sunshine Pictures Ltd.",
     "nse_symbol": "SUNSHINE",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-08-25",
@@ -112,7 +112,7 @@
   "SHANKESH-2026": {
     "company_name": "Shankesh Jewellers Ltd.",
     "nse_symbol": "SHANKESH",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-08-25",
@@ -122,7 +122,7 @@
   "LALITHAA-2026": {
     "company_name": "Lalithaa Jewellery Mart Ltd.",
     "nse_symbol": "LALITHAA",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-08-24",
@@ -132,7 +132,7 @@
   "HORIZONIND-2026": {
     "company_name": "Horizon Industrial Parks Ltd.",
     "nse_symbol": "HORIZONIND",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-08-24",
@@ -142,7 +142,7 @@
   "SHIPROCKET-2026": {
     "company_name": "Shiprocket Ltd.",
     "nse_symbol": "SHIPROCKET",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-08-19",
@@ -152,7 +152,7 @@
   "BLEL-2026": {
     "company_name": "Behari Lal Engineering Ltd.",
     "nse_symbol": "BLEL",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-08-19",
@@ -162,7 +162,7 @@
   "MILKYMIST-2026": {
     "company_name": "Milky Mist Dairy Food Ltd.",
     "nse_symbol": "MILKYMIST",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-08-18",
@@ -172,7 +172,7 @@
   "DHOOTTRANS-2026": {
     "company_name": "Dhoot Transmission Ltd.",
     "nse_symbol": "DHOOTTRANS",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-08-17",
@@ -182,7 +182,7 @@
   "MOLBIO-2026": {
     "company_name": "Molbio Diagnostics Ltd.",
     "nse_symbol": "MOLBIO",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-08-17",
@@ -192,7 +192,7 @@
   "TECHNOCRAF-2026": {
     "company_name": "Technocraft Ventures Ltd.",
     "nse_symbol": "TECHNOCRAF",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-08-14",
@@ -202,7 +202,7 @@
   "LEAPIND-2026": {
     "company_name": "LEAP India Ltd.",
     "nse_symbol": "LEAPIND",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-08-14",
@@ -212,7 +212,7 @@
   "ARDEE-2026": {
     "company_name": "Ardee Industries Ltd.",
     "nse_symbol": "ARDEE",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-08-12",
@@ -222,7 +222,7 @@
   "JNPR-2026": {
     "company_name": "Juniper Green Energy Ltd.",
     "nse_symbol": "JNPR",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-08-06",
@@ -232,7 +232,7 @@
   "MVELECTRO-2026": {
     "company_name": "MV Electrosystems Ltd.",
     "nse_symbol": "MVELECTRO",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-08-06",
@@ -242,7 +242,7 @@
   "MANIPALHOS-2026": {
     "company_name": "Manipal Health Enterprises Ltd.",
     "nse_symbol": "MANIPALHOS",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-08-05",
@@ -252,7 +252,7 @@
   "CUBE_HIGHWAYS_TRUST-2026": {
     "company_name": "Cube Highways Trust",
     "nse_symbol": null,
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-07-31",
@@ -262,7 +262,7 @@
   "LCL-2026": {
     "company_name": "Lohia Corp Ltd.",
     "nse_symbol": "LCL",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-07-30",
@@ -272,7 +272,7 @@
   "INDOMIM-2026": {
     "company_name": "Indo-MIM Ltd.",
     "nse_symbol": "INDOMIM",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-07-30",
@@ -282,7 +282,7 @@
   "XTRANET-2026": {
     "company_name": "Xtranet Technologies Ltd.",
     "nse_symbol": "XTRANET",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-07-30",
@@ -292,7 +292,7 @@
   "CMLL-2026": {
     "company_name": "Caliber Mining & Logistics Ltd.",
     "nse_symbol": "CMLL",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-07-24",
@@ -302,7 +302,7 @@
   "ALPINETEX-2026": {
     "company_name": "Alpine Texworld Ltd.",
     "nse_symbol": "ALPINETEX",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-07-21",
@@ -312,7 +312,7 @@
   "SBIFUNDS-2026": {
     "company_name": "SBI Funds Management Ltd.",
     "nse_symbol": "SBIFUNDS",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-07-21",
@@ -322,7 +322,7 @@
   "LASERPOWER-2026": {
     "company_name": "Laser Power & Infra Ltd.",
     "nse_symbol": "LASERPOWER",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-07-16",
@@ -332,7 +332,7 @@
   "KUSUMGAR-2026": {
     "company_name": "Kusumgar Ltd.",
     "nse_symbol": "KUSUMGAR",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-07-15",
@@ -342,7 +342,7 @@
   "KNACK-2026": {
     "company_name": "Knack Packaging Ltd.",
     "nse_symbol": "KNACK",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-07-08",
@@ -352,7 +352,7 @@
   "AASTHA-2026": {
     "company_name": "Aastha Spintex Ltd.",
     "nse_symbol": "AASTHA",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-07-06",
@@ -362,7 +362,7 @@
   "CSM-2026": {
     "company_name": "CSM Technologies Ltd.",
     "nse_symbol": "CSM",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-07-02",
@@ -372,7 +372,7 @@
   "CORDELIA-2026": {
     "company_name": "Waterways Leisure Tourism Ltd.",
     "nse_symbol": "CORDELIA",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-07-01",
@@ -382,7 +382,7 @@
   "RAMBHAJO-2026": {
     "company_name": "Advit Jewels Ltd.",
     "nse_symbol": "RAMBHAJO",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-07-01",
@@ -392,7 +392,7 @@
   "TURTLEMINT-2026": {
     "company_name": "Turtlemint Fintech Solutions Ltd.",
     "nse_symbol": "TURTLEMINT",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-06-29",
@@ -402,7 +402,7 @@
   "HEXAGON-2026": {
     "company_name": "Hexagon Nutrition Ltd.",
     "nse_symbol": "HEXAGON",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-06-12",
@@ -412,7 +412,7 @@
   "CMRGREEN-2026": {
     "company_name": "CMR Green Technologies Ltd.",
     "nse_symbol": "CMRGREEN",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-06-10",
@@ -422,7 +422,7 @@
   "BAGMANE_PRIME_OFFICE-2026": {
     "company_name": "Bagmane Prime Office REIT",
     "nse_symbol": null,
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-05-14",
@@ -432,7 +432,7 @@
   "KISSHT-2026": {
     "company_name": "OnEMI Technology Solutions Ltd.",
     "nse_symbol": "KISSHT",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-05-08",
@@ -442,7 +442,7 @@
   "CITIUS_TRANSNET_INVE-2026": {
     "company_name": "Citius Transnet Investment Trust",
     "nse_symbol": null,
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-04-29",
@@ -452,7 +452,7 @@
   "PROPERTY_SHARE_INVES-2026": {
     "company_name": "Property Share Investment Trust-Propshare Celestia",
     "nse_symbol": null,
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-04-24",
@@ -462,7 +462,7 @@
   "OMPOWER-2026": {
     "company_name": "Om Power Transmission Ltd.",
     "nse_symbol": "OMPOWER",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-04-17",
@@ -472,7 +472,7 @@
   "AMIRCHAND-2026": {
     "company_name": "Amir Chand Jagdish Kumar (Exports) Ltd.",
     "nse_symbol": "AMIRCHAND",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-04-02",
@@ -482,7 +482,7 @@
   "POWERICA-2026": {
     "company_name": "Powerica Ltd.",
     "nse_symbol": "POWERICA",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-04-02",
@@ -492,7 +492,7 @@
   "SAIPARENT-2026": {
     "company_name": "Sai Parenteral's Ltd.",
     "nse_symbol": "SAIPARENT",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-04-02",
@@ -502,7 +502,7 @@
   "CMPDI-2026": {
     "company_name": "Central Mine Planning & Design Institute Ltd.",
     "nse_symbol": "CMPDI",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-03-30",
@@ -512,7 +512,7 @@
   "GSPCROP-2026": {
     "company_name": "GSP Crop Science Ltd.",
     "nse_symbol": "GSPCROP",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-03-24",
@@ -522,7 +522,7 @@
   "RAAJMARG_INFRA_INVES-2026": {
     "company_name": "Raajmarg Infra Investment Trust",
     "nse_symbol": null,
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-03-24",
@@ -532,7 +532,7 @@
   "INNOVISION-2026": {
     "company_name": "Innovision Ltd.",
     "nse_symbol": "INNOVISION",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-03-23",
@@ -542,7 +542,7 @@
   "RSL-2026": {
     "company_name": "Rajputana Stainless Ltd.",
     "nse_symbol": "RSL",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-03-19",
@@ -552,7 +552,7 @@
   "SEDEMAC-2026": {
     "company_name": "SEDEMAC Mechatronics Ltd.",
     "nse_symbol": "SEDEMAC",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-03-11",
@@ -562,7 +562,7 @@
   "OMNI-2026": {
     "company_name": "Omnitech Engineering Ltd.",
     "nse_symbol": "OMNI",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-03-05",
@@ -572,7 +572,7 @@
   "PNGSREVA-2026": {
     "company_name": "PNGS Reva Diamond Jewellery Ltd.",
     "nse_symbol": "PNGSREVA",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-03-04",
@@ -582,7 +582,7 @@
   "SRTL-2026": {
     "company_name": "Shree Ram Twistex Ltd.",
     "nse_symbol": "SRTL",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-03-02",
@@ -592,7 +592,7 @@
   "CLEANMAX-2026": {
     "company_name": "Clean Max Enviro Energy Solutions Ltd.",
     "nse_symbol": "CLEANMAX",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-03-02",
@@ -602,7 +602,7 @@
   "GAUDIUMIVF-2026": {
     "company_name": "Gaudium IVF & Women Health Ltd.",
     "nse_symbol": "GAUDIUMIVF",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-02-27",
@@ -612,7 +612,7 @@
   "AYE-2026": {
     "company_name": "Aye Finance Ltd.",
     "nse_symbol": "AYE",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-02-16",
@@ -622,7 +622,7 @@
   "FRACTAL-2026": {
     "company_name": "Fractal Analytics Ltd.",
     "nse_symbol": "FRACTAL",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-02-16",
@@ -632,7 +632,7 @@
   "SHADOWFAX-2026": {
     "company_name": "Shadowfax Technologies Ltd.",
     "nse_symbol": "SHADOWFAX",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-01-28",
@@ -642,7 +642,7 @@
   "AMAGI-2026": {
     "company_name": "Amagi Media Labs Ltd.",
     "nse_symbol": "AMAGI",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-01-21",
@@ -652,7 +652,7 @@
   "BHARATCOAL-2026": {
     "company_name": "Bharat Coking Coal Ltd.",
     "nse_symbol": "BHARATCOAL",
-    "status": "LISTED",
+    "status": "CLOSED",
     "open_date": null,
     "close_date": null,
     "listing_date": "2026-01-19",
