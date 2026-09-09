@@ -47,6 +47,7 @@ from .models import CollectionReport, RawIPORecord
 logger = logging.getLogger(__name__)
 
 _BASE_URL = "https://www.chittorgarh.com/ipo/ipo_perf_tracker.asp"
+_CURRENT_URL = "https://www.chittorgarh.com/ipo/ipo_dashboard.asp"
 _HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -260,3 +261,173 @@ def scrape_chittorgarh(
 
     logger.info("Chittorgarh total: %d records across %d years", len(all_records), len(years))
     return all_records, report
+
+
+def _parse_dashboard_date_range(value: str, year: int) -> tuple[Optional[date], Optional[date]]:
+    """Parse the dashboard's compact date labels such as ``09 - 11 Sep``."""
+    value = " ".join(value.split())
+    match = re.search(r"(\d{1,2})\s*(?:-|–)\s*(\d{1,2})\s+([A-Za-z]{3,9})", value)
+    if not match:
+        return None, None
+    try:
+        month = datetime.strptime(match.group(3)[:3], "%b").month
+        return date(year, month, int(match.group(1))), date(year, month, int(match.group(2)))
+    except ValueError:
+        return None, None
+
+
+def _detail_text_value(soup: BeautifulSoup, title: str) -> Optional[str]:
+    anchor = soup.find("a", attrs={"title": title})
+    if not anchor:
+        return None
+    row = anchor.find_parent("li") or anchor.find_parent("tr")
+    if not row:
+        return None
+    values = [s.strip() for s in row.stripped_strings]
+    return values[-1] if values else None
+
+
+def _parse_detail_date(value: Optional[str]) -> Optional[date]:
+    if not value:
+        return None
+    for fmt in ("%a, %b %d, %Y", "%b %d, %Y", "%d %b %Y"):
+        try:
+            return datetime.strptime(value.replace(".", ""), fmt).date()
+        except ValueError:
+            continue
+    return None
+
+
+def _parse_number(value: str) -> Optional[float]:
+    value = value.replace(",", "")
+    match = re.search(r"-?\d+(?:\.\d+)?", value)
+    return float(match.group(0)) if match else None
+
+
+def _parse_current_detail(
+    session,
+    company_name: str,
+    detail_url: str,
+    fallback_open: Optional[date],
+    fallback_close: Optional[date],
+    now: str,
+) -> RawIPORecord:
+    """Normalize one current-dashboard IPO and its detail/subscription pages."""
+    open_date, close_date, listing_date = fallback_open, fallback_close, None
+    issue_price = price_band_low = price_band_high = lot_size = issue_size_cr = None
+    qib = nii = retail = total = None
+    try:
+        detail = session.get(detail_url, timeout=30)
+        soup = BeautifulSoup(detail.text, "lxml")
+        open_date = _parse_detail_date(_detail_text_value(soup, "IPO Open Date")) or open_date
+        close_date = _parse_detail_date(_detail_text_value(soup, "Close date")) or close_date
+        listing_date = _parse_detail_date(_detail_text_value(soup, "Tentative Listing Date"))
+
+        band = _detail_text_value(soup, "Issue Price Band")
+        prices = re.findall(r"\d+(?:\.\d+)?", band or "")
+        if prices:
+            price_band_low = float(prices[0])
+            price_band_high = float(prices[-1])
+            issue_price = price_band_high
+        lot = _detail_text_value(soup, "Lot Size")
+        lot_size = int(_parse_number(lot or "")) if _parse_number(lot or "") is not None else None
+
+        for row in soup.find_all("tr"):
+            cells = [" ".join(cell.stripped_strings) for cell in row.find_all(["td", "th"])]
+            if len(cells) >= 2 and cells[0].strip().lower() == "issue size":
+                issue_size_cr = _parse_number(cells[-1])
+                break
+
+        subscription_url = detail_url.replace("/ipo/", "/ipo_subscription/")
+        subscription = session.get(subscription_url, timeout=30)
+        sub_soup = BeautifulSoup(subscription.text, "lxml")
+        for row in sub_soup.find_all("tr"):
+            cells = [" ".join(cell.stripped_strings) for cell in row.find_all("td")]
+            if len(cells) < 2:
+                continue
+            label = cells[0].strip().lower()
+            value = _parse_number(cells[-1])
+            if label == "qib":
+                qib = value
+            elif label == "nii":
+                nii = value
+            elif label == "retail":
+                retail = value
+            elif label == "total":
+                total = value
+    except Exception as exc:
+        logger.warning("Current IPO detail parse failed for %s: %s", company_name, exc)
+
+    return RawIPORecord(
+        company_name=company_name,
+        open_date=open_date,
+        close_date=close_date,
+        listing_date=listing_date,
+        issue_price=issue_price,
+        price_band_low=price_band_low,
+        price_band_high=price_band_high,
+        lot_size=lot_size,
+        issue_size_cr=issue_size_cr,
+        subscription_qib_x=qib,
+        subscription_nii_x=nii,
+        subscription_retail_x=retail,
+        subscription_total_x=total,
+        source="CHITTORGARH_CURRENT",
+        source_url=detail_url,
+        scraped_at=now,
+    )
+
+
+def scrape_chittorgarh_current(
+    now: Optional[datetime] = None,
+    delay_seconds: float = 0.0,
+) -> tuple[list[RawIPORecord], CollectionReport]:
+    """Collect current/upcoming mainboard IPOs from the live dashboard."""
+    session, session_type = _get_session()
+    now = now or datetime.now(timezone.utc)
+    report = CollectionReport(source="CHITTORGARH_CURRENT", years_requested=[now.year])
+    try:
+        response = session.get(_CURRENT_URL, timeout=30)
+        if response.status_code != 200:
+            report.add_error(f"Current dashboard: HTTP {response.status_code}")
+            return [], report
+    except Exception as exc:
+        report.add_error(f"Current dashboard fetch error: {exc}")
+        return [], report
+
+    soup = BeautifulSoup(response.text, "lxml")
+    records: list[RawIPORecord] = []
+    seen: set[str] = set()
+    for anchor in soup.select('a[href^="/ipo/"]'):
+        href = anchor.get("href", "")
+        company_name = " ".join(anchor.stripped_strings).strip()
+        if not company_name or href in seen or href.count("/") < 3:
+            continue
+        row = anchor.find_parent("tr")
+        if not row:
+            continue
+        date_label = next(
+            (" ".join(span.stripped_strings) for span in row.select("span.float-end")),
+            "",
+        )
+        open_date, close_date = _parse_dashboard_date_range(date_label, now.year)
+        if not open_date and not close_date:
+            continue
+        seen.add(href)
+        detail_url = f"https://www.chittorgarh.com{href}"
+        records.append(
+            _parse_current_detail(
+                session,
+                company_name,
+                detail_url,
+                open_date,
+                close_date,
+                now.isoformat(),
+            )
+        )
+        if delay_seconds:
+            time.sleep(delay_seconds)
+
+    report.records_collected = len(records)
+    logger.info("Chittorgarh current dashboard using %s: %d records", session_type, len(records))
+    return records, report

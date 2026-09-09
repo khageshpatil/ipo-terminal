@@ -8,13 +8,13 @@ import IposPage      from './pages/IposPage.jsx';
 import IpoDetailPage from './pages/IpoDetailPage.jsx';
 import CapitalPage   from './pages/CapitalPage.jsx';
 import BacktestPage  from './pages/BacktestPage.jsx';
-import LivePage      from './pages/LivePage.jsx';
+import LivePage      from './pages/LiveProductPage.jsx';
 
 const NAV = [
-  { id: 'live',     label: 'Live IPOs',      Icon: Lightning      },
-  { id: 'ipos',     label: 'IPO Universe',   Icon: House          },
-  { id: 'capital',  label: 'Capital Planner', Icon: CurrencyDollar },
-  { id: 'backtest', label: 'Backtest',        Icon: ChartBar       },
+  { id: 'live',     label: 'Live',      Icon: Lightning      },
+  { id: 'ipos',     label: 'IPOs',      Icon: House          },
+  { id: 'backtest', label: 'History',   Icon: ChartBar       },
+  { id: 'capital',  label: 'Strategy', Icon: CurrencyDollar },
 ];
 
 function useTheme() {
@@ -156,7 +156,7 @@ function WarmupOverlay({ status, elapsed }) {
 }
 
 export default function App() {
-  const [page, setPage]             = useState('ipos');
+  const [page, setPage]             = useState('live');
   const [selectedIpo, setSelected]  = useState(null);
   const { theme, toggle }           = useTheme();
   const { status, elapsed }         = useWarmup();

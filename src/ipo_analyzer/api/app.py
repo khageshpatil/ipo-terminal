@@ -582,7 +582,14 @@ def live_ipos(status: Optional[str] = Query(None, description="Filter: OPEN/UPCO
             "drivers": decision.drivers,
             "p_positive": decision.p_positive,
             "expected_return_pct": decision.expected_return_pct,
+            "market_regime": decision.features_snapshot.get("market_regime"),
+            "market_india_vix_close": decision.features_snapshot.get("market_india_vix_close"),
+            "market_nifty_return_20d": decision.features_snapshot.get("market_nifty_return_20d"),
+            "market_nifty_return_5d": decision.features_snapshot.get("market_nifty_return_5d"),
+            "market_as_of": decision.market_as_of,
             "data_quality": decision.data_quality,
+            "missing_fields": decision.missing_fields,
+            "decision_at": decision.decision_at,
             "observed_at": ipo.observed_at,
             "retrieved_at": ipo.retrieved_at,
             "source": ipo.source,
@@ -591,7 +598,7 @@ def live_ipos(status: Optional[str] = Query(None, description="Filter: OPEN/UPCO
     return {
         "count": len(result),
         "last_refreshed": _live_last_refreshed,
-        "note": "All recommendations are RULE_ESTIMATE. Data from Chittorgarh.",
+        "note": "All recommendations are RULE_ESTIMATE. Data from Chittorgarh with optional InvestorGain enrichment.",
         "ipos": result,
     }
 
