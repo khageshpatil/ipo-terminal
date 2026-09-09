@@ -48,6 +48,10 @@ class Decision:
     expected_return_pct: Optional[float] = None
     confidence: str = "RULE_ESTIMATE"      # RULE_ESTIMATE | MODEL_PREDICTION
 
+    # Stable machine-readable metadata for API consumers and audit trails.
+    strategy_version: str = "RULE_V1"
+    drivers: list[str] = field(default_factory=list)
+
     # Reason string for UI "WHY?" section
     reason_lines: list[str] = field(default_factory=list)
 

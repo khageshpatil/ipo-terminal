@@ -153,3 +153,12 @@ def test_missing_fields_reported():
     ipo = make_ipo(subscription_total_x=None, issue_price=None)
     decision = run_live_decision(ipo)
     assert "subscription_total_x" in decision.missing_fields
+
+
+def test_future_live_observation_is_not_used():
+    """A snapshot observed after decision time cannot influence the rule."""
+    ipo = make_ipo(observed_at="2099-01-01T00:00:00+00:00")
+    decision = run_live_decision(ipo)
+    assert decision.features_snapshot["subscription_total_x"] is None
+    assert "subscription_total_x" in decision.missing_fields
+    assert decision.recommendation == "WATCH"

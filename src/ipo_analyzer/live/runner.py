@@ -37,6 +37,8 @@ class LiveDecision:
     company_name: str
     recommendation: str          # APPLY / WATCH / SKIP
     confidence: str = "RULE_ESTIMATE"
+    strategy_version: str = "RULE_V1"
+    drivers: list[str] = field(default_factory=list)
     p_positive: Optional[float] = None
     expected_return_pct: Optional[float] = None
     reason_lines: list[str] = field(default_factory=list)
@@ -49,12 +51,17 @@ class LiveDecision:
     # Data quality
     data_quality: str = "PARTIAL"    # FULL / PARTIAL / MINIMAL
     missing_fields: list[str] = field(default_factory=list)
+    features_snapshot: dict = field(default_factory=dict)
+    market_as_of: Optional[str] = None
 
     # Timestamps
     decision_at: str = ""
 
 
-def _build_features_from_live(ipo: LiveIPO) -> dict:
+def _build_features_from_live(
+    ipo: LiveIPO,
+    decision_timestamp: Optional[datetime] = None,
+) -> dict:
     """
     Build a feature dict from a LiveIPO for the rule strategy.
     Maps LiveIPO fields to the keys expected by rule_based_strategy().
@@ -64,13 +71,27 @@ def _build_features_from_live(ipo: LiveIPO) -> dict:
     Market keys: market_regime, market_india_vix_close, market_nifty_return_20d
     Structure keys: ofs_pct, issue_size_cr
     """
+    decision_timestamp = decision_timestamp or datetime.now(timezone.utc)
     features: dict = {}
 
+    # A live snapshot is usable only if it was observed no later than the
+    # decision. Missing timestamps remain missing; they are never fabricated.
+    observation_is_available = True
+    if ipo.observed_at:
+        try:
+            observed_at = datetime.fromisoformat(ipo.observed_at.replace("Z", "+00:00"))
+            if observed_at.tzinfo is None:
+                observation_is_available = False
+            else:
+                observation_is_available = observed_at <= decision_timestamp
+        except ValueError:
+            observation_is_available = False
+
     # Subscription signals
-    features["subscription_qib_x"] = ipo.subscription_qib_x
-    features["subscription_nii_x"] = ipo.subscription_nii_x
-    features["subscription_retail_x"] = ipo.subscription_retail_x
-    features["subscription_total_x"] = ipo.subscription_total_x
+    features["subscription_qib_x"] = ipo.subscription_qib_x if observation_is_available else None
+    features["subscription_nii_x"] = ipo.subscription_nii_x if observation_is_available else None
+    features["subscription_retail_x"] = ipo.subscription_retail_x if observation_is_available else None
+    features["subscription_total_x"] = ipo.subscription_total_x if observation_is_available else None
 
     # Issue structure
     features["issue_size_cr"] = ipo.issue_size_cr
@@ -86,15 +107,17 @@ def _build_features_from_live(ipo: LiveIPO) -> dict:
         mkt_path = Path("data/market/market_features_daily.csv")
         if mkt_path.exists():
             mkt_df = pd.read_csv(mkt_path)
+            mkt_df["Date"] = pd.to_datetime(mkt_df["Date"]).dt.date
             from ipo_analyzer.data_sources.market_data import get_market_snapshot_for_date
             # Use today's market snapshot
-            today = datetime.now(timezone.utc).date()
+            today = decision_timestamp.date()
             snap = get_market_snapshot_for_date(mkt_df, today)
             if snap:
                 features["market_regime"] = snap.market_regime
                 features["market_india_vix_close"] = snap.india_vix_close
                 features["market_nifty_return_20d"] = snap.nifty_return_20d
                 features["market_nifty_return_5d"] = snap.nifty_return_5d
+                features["market_as_of"] = str(today)
     except Exception as e:
         logger.debug("Market data unavailable for live features: %s", e)
 
@@ -133,8 +156,9 @@ def run_live_decision(ipo: LiveIPO) -> LiveDecision:
     Run the rule strategy against a single live IPO.
     Returns a LiveDecision — always labelled RULE_ESTIMATE.
     """
-    now = datetime.now(timezone.utc).isoformat()
-    features = _build_features_from_live(ipo)
+    decision_at = datetime.now(timezone.utc)
+    now = decision_at.isoformat()
+    features = _build_features_from_live(ipo, decision_at)
     quality, missing = _assess_data_quality(ipo, features)
 
     # Run rule strategy
@@ -147,11 +171,15 @@ def run_live_decision(ipo: LiveIPO) -> LiveDecision:
             if hasattr(decision.recommendation, "value")
             else str(decision.recommendation),
         confidence="RULE_ESTIMATE",
+        strategy_version=decision.strategy_version,
+        drivers=decision.drivers,
         p_positive=decision.p_positive,
         expected_return_pct=decision.expected_return_pct,
         reason_lines=decision.reason_lines,
         data_quality=quality,
         missing_fields=missing,
+        features_snapshot=features,
+        market_as_of=features.get("market_as_of"),
         decision_at=now,
     )
 

@@ -267,6 +267,44 @@ function DetailPanel({ ipo, onClose }) {
               </div>
             )}
 
+            {/* Deterministic strategy evidence */}
+            <div style={{
+              background: 'var(--bg-2)', borderRadius: 'var(--r)', padding: 14, marginBottom: 16,
+              border: '1px solid var(--border-0)',
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
+                <span style={{ fontSize: 10, color: 'var(--text-3)', fontFamily: 'var(--font-mono)', letterSpacing: '0.08em' }}>
+                  STRATEGY EVIDENCE
+                </span>
+                <span style={{ fontSize: 10, color: 'var(--text-3)', fontFamily: 'var(--font-mono)' }}>
+                  {analysis.strategy_version || 'RULE_V1'}
+                </span>
+              </div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+                {(analysis.drivers || []).map(driver => (
+                  <span key={driver} style={{
+                    border: '1px solid var(--border-1)', borderRadius: 'var(--r-sm)',
+                    padding: '3px 7px', color: 'var(--text-1)', fontSize: 10,
+                    fontFamily: 'var(--font-mono)',
+                  }}>
+                    {driver}
+                  </span>
+                ))}
+              </div>
+              {analysis.market_as_of && (
+                <>
+                  <div style={{ marginTop: 10, color: 'var(--text-3)', fontSize: 10, fontFamily: 'var(--font-mono)', letterSpacing: '0.06em' }}>
+                    MARKET CONTEXT · {analysis.market_as_of}
+                  </div>
+                  <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 5, color: 'var(--text-1)', fontSize: 11, fontFamily: 'var(--font-mono)' }}>
+                    <span>Regime {analysis.features_snapshot?.market_regime || 'Unavailable'}</span>
+                    <span>VIX {analysis.features_snapshot?.market_india_vix_close != null ? fmt(analysis.features_snapshot.market_india_vix_close) : 'Unavailable'}</span>
+                    <span>Nifty 20D {analysis.features_snapshot?.market_nifty_return_20d != null ? `${fmt(analysis.features_snapshot.market_nifty_return_20d * 100, 1)}%` : 'Unavailable'}</span>
+                  </div>
+                </>
+              )}
+            </div>
+
             {/* Subscription time series */}
             {snapshots?.observations?.length > 0 && (
               <div>

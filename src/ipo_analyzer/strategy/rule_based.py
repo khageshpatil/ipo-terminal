@@ -175,6 +175,27 @@ def rule_based_strategy(
     str_score, str_reasons = _score_structure(features, cfg)
 
     all_reasons: list[str] = sub_reasons + mkt_reasons + str_reasons
+    drivers: list[str] = []
+    if sub_score == "STRONG":
+        drivers.append("demand_strong")
+    elif sub_score == "MODERATE":
+        drivers.append("demand_moderate")
+    elif sub_score == "WEAK":
+        drivers.append("demand_weak")
+    else:
+        drivers.append("demand_unavailable")
+    if mkt_score == "POSITIVE":
+        drivers.append("market_positive")
+    elif mkt_score == "NEGATIVE":
+        drivers.append("market_negative")
+    else:
+        drivers.append("market_neutral_or_unavailable")
+    if str_score == "CAUTION":
+        drivers.append("issue_structure_caution")
+    elif str_score == "OK":
+        drivers.append("issue_structure_ok")
+    else:
+        drivers.append("issue_structure_unavailable")
 
     # Decision logic
     if sub_score == "WEAK":
@@ -221,6 +242,8 @@ def rule_based_strategy(
         p_positive=p_pos,
         expected_return_pct=er,
         confidence="RULE_ESTIMATE",
+        strategy_version="RULE_V1",
+        drivers=drivers,
         reason_lines=all_reasons,
     )
 

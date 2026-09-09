@@ -107,6 +107,7 @@ def _build_analysis_features(ipo) -> dict:
             import pandas as pd
             from ipo_analyzer.data_sources.market_data import get_market_snapshot_for_date
             mkt_df = pd.read_csv(mkt_path)
+            mkt_df["Date"] = pd.to_datetime(mkt_df["Date"]).dt.date
             snap = get_market_snapshot_for_date(mkt_df, ipo.listing_date)
             if snap:
                 features["market_regime"] = snap.market_regime
@@ -159,12 +160,15 @@ class IPOAnalysisResponse(BaseModel):
     # Decision
     recommendation: str
     confidence: str
+    strategy_version: str
+    drivers: list[str]
     p_positive: Optional[float]
     expected_return_pct: Optional[float]
     p_allotment: Optional[float]
     expected_profit_per_application: Optional[float]
     capital_required_per_lot: Optional[float]
     reason_lines: list[str]
+    features_snapshot: dict
 
     # Market context
     market_regime: Optional[str]
@@ -300,6 +304,8 @@ def list_ipos(
     offset: int = Query(0, ge=0),
 ):
     ipos = _get_universe()
+    if min_quality == "PRIMARY_VERIFIED":
+        ipos = [r for r in ipos if r.listing_open_quality == "PRIMARY_VERIFIED"]
     if year:
         ipos = [r for r in ipos if r.year == year]
     if search:
@@ -389,6 +395,8 @@ def analyse_ipo(ipo_id: str):
         subscription_total_x=match.subscription_total_x,
         recommendation=analysis.recommendation,
         confidence=analysis.confidence,
+        strategy_version="RULE_V1",
+        drivers=_get_strategy()(match.ipo_id, features).drivers,
         p_positive=analysis.p_positive,
         expected_return_pct=analysis.expected_return_pct,
         p_allotment=analysis.p_allotment,
@@ -401,6 +409,7 @@ def analyse_ipo(ipo_id: str):
             if analysis.capital_required_per_lot else None
         ),
         reason_lines=analysis.reason_lines,
+        features_snapshot=analysis.features_snapshot,
         market_regime=features.get("market_regime"),
         market_india_vix_close=features.get("market_india_vix_close"),
         market_nifty_return_20d=features.get("market_nifty_return_20d"),
@@ -569,6 +578,8 @@ def live_ipos(status: Optional[str] = Query(None, description="Filter: OPEN/UPCO
             "gmp_pct": ipo.gmp_pct,
             "recommendation": decision.recommendation,
             "confidence": decision.confidence,
+            "strategy_version": decision.strategy_version,
+            "drivers": decision.drivers,
             "p_positive": decision.p_positive,
             "expected_return_pct": decision.expected_return_pct,
             "data_quality": decision.data_quality,
@@ -619,14 +630,19 @@ def live_ipo_analysis(ipo_id: str):
         "gmp_pct": ipo.gmp_pct,
         "recommendation": decision.recommendation,
         "confidence": decision.confidence,
+        "strategy_version": decision.strategy_version,
+        "drivers": decision.drivers,
         "p_positive": decision.p_positive,
         "expected_return_pct": decision.expected_return_pct,
         "reason_lines": decision.reason_lines,
+        "features_snapshot": decision.features_snapshot,
+        "market_as_of": decision.market_as_of,
         "data_quality": decision.data_quality,
         "missing_fields": decision.missing_fields,
         "decision_at": decision.decision_at,
         "source": ipo.source,
         "observed_at": ipo.observed_at,
+        "retrieved_at": ipo.retrieved_at,
     }
 
 
