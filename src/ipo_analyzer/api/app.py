@@ -598,7 +598,7 @@ def live_ipos(status: Optional[str] = Query(None, description="Filter: OPEN/UPCO
     return {
         "count": len(result),
         "last_refreshed": _live_last_refreshed,
-        "note": "All recommendations are RULE_ESTIMATE. Data from Chittorgarh with optional InvestorGain enrichment.",
+        "note": "All recommendations are RULE_ESTIMATE. InvestorGain primary; Chittorgarh fallback.",
         "ipos": result,
     }
 
